@@ -1,1 +1,1 @@
-web: bash run.js
+web: ./run.js
