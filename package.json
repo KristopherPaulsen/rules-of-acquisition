@@ -1,0 +1,29 @@
+{
+  "name": "node-hello-world",
+  "version": "1.0.0",
+  "description": "A simple Node.js Hello World Application.",
+  "main": "index.js",
+  "dependencies": {
+    "cookie-parser": "^1.4.4",
+    "express": "^4.17.1",
+    "nodemon": "^2.0.5",
+    "pg": "^8.3.3",
+    "pg-hstore": "^2.3.3",
+    "sequelize": "^6.3.5"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "db:seed": "node ./database/seed-database.js",
+    "express": "nodemon src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/zocada/node-hello-world.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/zocada/node-hello-world/issues"
+  },
+  "homepage": "https://github.com/zocada/node-hello-world#readme"
+}

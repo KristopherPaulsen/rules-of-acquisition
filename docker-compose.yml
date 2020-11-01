@@ -1,0 +1,23 @@
+version: "3.8"
+services:
+  roa-postgres:
+    environment:
+      - POSTGRES_PASSWORD
+    build:
+      context: ./
+      dockerfile: Dockerfile-postgres
+    ports:
+      - "5432:5432"
+  roa-express:
+    build:
+      context: ./
+      dockerfile: Dockerfile-express
+    ports:
+      - "1111:1111"
+  roa-bootstrapping:
+    depends_on:
+      - roa-postgres
+      - roa-express
+    build:
+      context: ./
+      dockerfile: Dockerfile-bootstrapping
