@@ -1,16 +1,11 @@
 const { Sequelize, QueryTypes } = require('sequelize');
 
-const db = process.env.NODE_ENV === 'production'
-  ? new Sequelize(process.env.DATABASE_URL)
-  : new Sequelize(
-      process.env.POSTGRES_DATABASE,
-      process.env.POSTGRES_USERNAME,
-      process.env.POSTGRES_PASSWORD,
-      {
-        host: 'roa-postgres',
-        port: process.env.POSTGRES_PORT,
-        dialect: 'postgres',
-      }
-  );
+var match = process.env.DATABASE_URL.match(/postgres:\/\/([^:]+):([^@]+)@([^:]+):(\d+)\/(.+)/)
+const db = new Sequelize(match[5], match[1], match[2], {
+    dialect:  'postgres',
+    protocol: 'postgres',
+    port:     match[4],
+    host:     match[3],
+})
 
 module.exports = { QueryTypes, db };
