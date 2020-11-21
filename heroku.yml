@@ -8,5 +8,5 @@ build:
   config:
     NODE_ENV: production
 run:
-  web: npm run start
+  web: npm run db:seed && npm run start
 
