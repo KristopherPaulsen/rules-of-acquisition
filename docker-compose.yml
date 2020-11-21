@@ -1,33 +1,25 @@
 version: "3.8"
 
-x-env-vars: &env-vars
-  - DATABASE_URL
-  - SERVER_PORT
-  - POSTGRES_PASSWORD
-  - POSTGRESS_DATABASE
-  - POSTGRES_USERNAME
-  - POSTGRES_PORT
-
 services:
   roa-postgres:
-    environment: *env-vars
+    env_file: .env
     build:
       context: ./
-      dockerfile: Dockerfile-postgres
+      dockerfile: Dockerfile.postgres
     ports:
       - "5432:5432"
   roa-express:
-    environment: *env-vars
+    env_file: .env
     build:
       context: ./
-      dockerfile: Dockerfile-express
+      dockerfile: Dockerfile.express
     ports:
       - "${SERVER_PORT}:${SERVER_PORT}"
   roa-bootstrapping:
-    environment: *env-vars
+    env_file: .env
     depends_on:
       - roa-postgres
       - roa-express
     build:
       context: ./
-      dockerfile: Dockerfile-bootstrapping
+      dockerfile: Dockerfile.bootstrapping
