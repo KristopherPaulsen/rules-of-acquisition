@@ -9,8 +9,8 @@ app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
 app.listen(
-  process.env.SERVER_PORT,
-  () => console.log(`Example app listening on port ${process.env.SERVER_PORT}`)
+  process.env.PORT,
+  () => console.log(`Example app listening on port ${process.env.PORT}`)
 );
 
 // ------------------------------- MAIN ------------------------------------ \\
