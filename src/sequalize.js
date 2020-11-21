@@ -1,7 +1,7 @@
 const { Sequelize, QueryTypes } = require('sequelize');
 
-const db = process.env.DATABASE_URL
-  ? process.env.DATABASE_URL
+const db = process.env.NODE_ENV === 'production'
+  ? new Sequelize(process.env.DATABASE_URL)
   : new Sequelize(
       process.env.POSTGRES_DATABASE,
       process.env.POSTGRES_USERNAME,
