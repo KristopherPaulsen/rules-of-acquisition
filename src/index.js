@@ -1,3 +1,4 @@
+require("dotenv").config();
 const express = require('express');
 const bodyParser = require("body-parser");
 const cookieParser = require('cookie-parser');
@@ -7,7 +8,10 @@ app.use(bodyParser.json());
 app.use(cookieParser());
 app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('public'));
-app.listen(1111, () => console.log(`Example app listening on port 1111`))
+app.listen(
+  process.env.SERVER_PORT,
+  () => console.log(`Example app listening on port ${process.env.SERVER_PORT}`)
+);
 
 // ------------------------------- MAIN ------------------------------------ \\
 
