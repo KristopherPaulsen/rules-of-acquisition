@@ -9,5 +9,5 @@ build:
   config:
     NODE_ENV: production
 run:
-  web: npm start
+  web: npm run start
 
