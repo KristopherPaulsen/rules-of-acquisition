@@ -5,7 +5,6 @@ setup:
 build:
   docker:
     express: Dockerfile.express
-    bootstrapping: Dockerfile.bootstrapping
   config:
     NODE_ENV: production
 run:
