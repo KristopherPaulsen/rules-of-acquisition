@@ -7,7 +7,7 @@ services:
       context: ./
       dockerfile: Dockerfile.postgres
     ports:
-      - "5432:5432"
+      - "${POSTGRES_PORT}:${POSTGRES_PORT}"
   roa-express:
     env_file: .env
     build:
