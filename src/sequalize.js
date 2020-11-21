@@ -1,10 +1,14 @@
 const { Sequelize, QueryTypes } = require('sequelize');
 
-// Option 1: Passing a connection URI
-const db = new Sequelize('postgres', 'postgres', 'password', {
-  host: 'roa-postgres',
-  port: '5432',
-  dialect: 'postgres',
-});
+const db = new Sequelize(
+  process.env.POSTGRES_DATABASE,
+  process.env.POSTGRES_USERNAME,
+  process.env.POSTGRES_PASSWORD,
+  {
+    host: 'roa-postgres',
+    port: process.env.POSTGRES_PORT,
+    dialect: 'postgres',
+  }
+);
 
 module.exports = { QueryTypes, db };
