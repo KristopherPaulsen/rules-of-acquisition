@@ -4,8 +4,6 @@ COPY . /usr/src/app
 
 WORKDIR /usr/src/app
 
-EXPOSE 1111
-
 RUN npm install
 
 CMD ["npm", "run", "express"]

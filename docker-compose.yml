@@ -3,6 +3,7 @@ services:
   roa-postgres:
     environment:
       - POSTGRES_PASSWORD
+      - SERVER_PORT
     build:
       context: ./
       dockerfile: Dockerfile-postgres
@@ -13,7 +14,7 @@ services:
       context: ./
       dockerfile: Dockerfile-express
     ports:
-      - "1111:1111"
+      - "${SERVER_PORT}:${SERVER_PORT}"
   roa-bootstrapping:
     depends_on:
       - roa-postgres
