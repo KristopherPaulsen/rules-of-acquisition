@@ -7,7 +7,6 @@ const db = new Sequelize(match[5], match[1], match[2], {
     port:     match[4],
     host:     match[3],
     ssl: true,
-    logging: true,
 })
 
 module.exports = { QueryTypes, db };
