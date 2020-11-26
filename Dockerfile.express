@@ -1,9 +1,13 @@
 FROM node:12
 
-COPY . /usr/src/app
+COPY package.json package-lock.json /usr/src/app/
 
 WORKDIR /usr/src/app
 
 RUN npm install
+
+RUN ls . && echo && echo && echo
+
+COPY src/ /usr/src/app/
 
 CMD ["npm", "run", "express"]
