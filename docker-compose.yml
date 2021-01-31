@@ -6,6 +6,8 @@ services:
     build:
       context: ./
       dockerfile: Dockerfile.postgres
+    environment:
+      POSTGRES_PASSWORD: "password"
     ports:
       - "${POSTGRES_PORT}:${POSTGRES_PORT}" #automatically defined in environment once run in heroku
   roa-express:
